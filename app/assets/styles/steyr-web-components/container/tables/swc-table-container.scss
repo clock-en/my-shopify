@@ -1,0 +1,19 @@
+/* 
+ * swc-table-container.scss
+ * 
+ * @memberOf container/tables
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-table-container {
+  margin: 2em 0;
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include kill-edge-child-margin(vertical);
+}

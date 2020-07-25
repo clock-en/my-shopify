@@ -1,0 +1,102 @@
+/* 
+ * site-menu.scss
+ * 
+ * @memberOf navigation/pagination
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-pagination {
+  @include pagination-core-styles;
+
+  display: table;
+  table-layout: fixed;
+  list-style: none;
+  white-space: nowrap;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 4px;
+  box-shadow: 0 3px 1px -2px rgba(map-get($swc-colors , black ),.2), 0 2px 2px 0 rgba(map-get($swc-colors , black ),.14), 0 1px 5px 0 rgba(map-get($swc-colors , black ),.12);;
+
+  &__item {
+    display: table-cell;
+    padding: 0.5rem 1rem;
+    border: 1px solid map-get($swc-colors, gray);
+    overflow: hidden;
+
+    &:first-child {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    & + & {
+      border-left: none;
+    }
+
+    a {
+      display: block;
+      margin: -0.5rem -1rem;
+      padding: 0.5rem 1rem;
+      color: map-get($swc-colors, black);
+      text-decoration: none;
+      transition: background-color $swc-basic-transition;
+
+      &:hover,
+      &.is-current {
+        background-color: map-get($swc-colors, light-gray);
+      }
+      &.is-current {
+        font-weight: bold;
+      }
+    }
+
+    &.is-disabled {
+      display: none;
+      
+      a {
+        pointer-events: none;
+      }
+
+      @include get-media-query(mobile) {
+        &.is-active-mobile {
+          display: table-cell;
+
+          a {
+            pointer-events: inherit;
+          }
+        }
+      }
+      @include get-media-query(tablet) {
+        &.is-active-tablet {
+          display: table-cell;
+
+          a {
+            pointer-events: inherit;
+          }
+        }
+      }
+      @include get-media-query(desktop) {
+        &.is-active-desktop {
+          display: table-cell;
+
+          a {
+            pointer-events: inherit;
+          }
+        }
+      }
+    }
+    @include get-media-query(mobile) {
+      &--prev,
+      &--next {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+/* 
+ * swc-card.scss
+ * 
+ * @memberOf container/cards
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-card {
+  @include card-core-styles;
+
+  &__media {
+    @include global-reset;
+  }
+}

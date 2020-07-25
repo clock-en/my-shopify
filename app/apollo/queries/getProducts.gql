@@ -1,0 +1,47 @@
+query getCollections {
+  collections(first: 100) {
+    edges {
+      cursor
+      node {
+        title
+        handle
+        products(first: 5, sortKey: CREATED, reverse: true) {
+          edges {
+            cursor
+            node {
+              collections(first: 3) {
+                edges {
+                  node {
+                    title
+                    handle
+                  }
+                }
+              }
+              title
+              handle
+              tags
+              images(first: 1) {
+                edges {
+                  node {
+                    originalSrc
+                  }
+                }
+              }
+              onlineStoreUrl
+              priceRange {
+                maxVariantPrice {
+                  amount
+                }
+                minVariantPrice {
+                  amount
+                }
+              }
+              totalInventory
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

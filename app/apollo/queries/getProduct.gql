@@ -1,0 +1,72 @@
+query getCollectionProducts($handleName: String!) {
+  productByHandle(handle: $handleName) {
+    collections(first: 1) {
+      edges {
+        node {
+          title
+        }
+      }
+    }
+    handle
+    variants(first: 10) {
+      edges {
+        node {
+          id
+          title
+          image {
+            originalSrc
+          }
+          priceV2 {
+            amount
+          }
+        }
+      }
+    }
+    title
+    tags
+    media(first: 9) {
+      edges {
+        node {
+          previewImage {
+            id
+            originalSrc
+          }
+        }
+      }
+    }
+    images(first: 8) {
+      edges {
+        node {
+          id
+          originalSrc
+        }
+      }
+    }
+    onlineStoreUrl
+    priceRange {
+      maxVariantPrice {
+        amount
+      }
+      minVariantPrice {
+        amount
+      }
+    }
+    totalInventory
+    id
+    description
+    options {
+      id
+      name
+      values
+    }
+    metafields(first: 20) {
+      edges {
+        node {
+          id
+          key
+          namespace
+        }
+      }
+    }
+  }
+}

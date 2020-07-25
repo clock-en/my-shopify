@@ -1,0 +1,26 @@
+/* 
+ * site-header.scss
+ * 
+ * @memberOf layouts
+ */
+
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 1;
+
+  &__body {
+    max-width: 1080px;
+    margin: 0 auto;
+    border-top: 1px solid map-get($colors, grey);
+    padding: 1em;
+  }
+
+  [data-sidebar="true"] + & {
+    left: calc(300px + 5em);
+  }
+}

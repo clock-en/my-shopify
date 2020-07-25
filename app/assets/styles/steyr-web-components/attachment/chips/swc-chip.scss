@@ -1,0 +1,42 @@
+/* 
+ * swc-chip.scss
+ * 
+ * @memberOf attachment/chips
+ */
+
+// Import partials
+@import './mixins';
+
+.swc-chip {
+  @include chip-core-styles;
+
+  padding: 0.5em 1em;
+  font-size: 0.75rem;
+  background-color: map-get($swc-colors , grey);
+  border-radius: 4px;
+
+  &--primary {
+    background-color: $swc-primary-theme;
+    color: map-get($swc-colors , white);
+  }
+  &--secondary {
+    background-color: $swc-secondary-theme;
+    color: map-get($swc-colors , white);
+  }
+  &--success {
+    background-color: $swc-success-color;
+    color: map-get($swc-colors , white);
+  }
+  &--warning {
+    background-color: $swc-warning-color;
+    color: map-get($swc-colors , white);
+  }
+  &--alert {
+    background-color: $swc-alert-color;
+    color: map-get($swc-colors , white);
+  }
+  &--notice {
+    background-color: $swc-notice-color;
+    color: map-get($swc-colors , white);
+  }
+}

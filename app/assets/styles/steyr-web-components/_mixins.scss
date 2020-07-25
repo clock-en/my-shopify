@@ -1,0 +1,244 @@
+/* 
+ * _mixins.scss
+ */
+
+@mixin global-reset() {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:1em;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+@mixin clearfix() {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+// Get device media query
+// @param {String} device name 'desktop', 'tablet' or 'mobile'.
+@mixin get-media-query($device) {
+  $min: get-min-breakpoint($device);
+  $max: get-max-breakpoint($device);
+
+  @if $min == null and $max != null {
+    // Phone
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null and $max != null {
+    // Tablet
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null and $max == null {
+    // Desktop
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    // Fallback - no breakpoints defined
+    @content;
+  }
+}
+
+// Get min device media query
+@mixin get-min-media-query($device) {
+  $width: get-min-breakpoint($device);
+
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+// Get max device media query
+@mixin get-max-media-query($device) {
+  $width: get-max-breakpoint($device);
+
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+// Delete margin at first and last child.
+@mixin kill-edge-child-margin($mode) {
+  $first-child-kill-direction: if($mode == horizon, left, top);
+  $last-child-kill-direction: if($mode == horizon, right, bottom);
+
+  > *:first-child {
+    margin-#{$first-child-kill-direction}: 0 !important;
+  }
+  > *:last-child {
+    margin-#{$last-child-kill-direction}: 0 !important;
+  }
+}
+
+// Set margin-bottom to children equality.
+@mixin set-children-margin($margin-bottom: 0.6em) {
+  > * {
+    margin: 0 0 $margin-bottom;
+  }
+}
+
+@mixin generate-equlized-cells($className, $deviceName: '') {
+  $basename: '';
+  $equalize2: 50%;
+  $equalize3: 33.3333%;
+  $equalize4: 25%;
+  $equalize5: 20%;
+  $equalize6: 16.6666%;
+  
+  @if $deviceName != '' {
+    $basename: '#{$deviceName}-';
+  }
+  #{$className}--#{$basename}equalize-2 > #{$className}__cell {
+    flex: 0 0 auto;
+    width: $equalize2 !important;
+  }
+  #{$className}--#{$basename}equalize-3 > #{$className}__cell {
+    flex: 0 0 auto;
+    width: $equalize3 !important;
+  }
+  #{$className}--#{$basename}equalize-4 > #{$className}__cell {
+    flex: 0 0 auto;
+    width: $equalize4 !important;
+  }
+  #{$className}--#{$basename}equalize-5 > #{$className}__cell {
+    flex: 0 0 auto;
+    width: $equalize5 !important;
+  }
+  #{$className}--#{$basename}equalize-6 > #{$className}__cell {
+    flex: 0 0 auto;
+    width: $equalize6 !important;
+  }
+}
+
+// Generate grid modifier
+@mixin generate-grid-elements($className, $equlize: true) {
+  $basename: '.swc-';
+
+  @if $className != '' {
+    $basename: #{$className}__;
+  }
+
+  // generate cell elements
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    #{$basename}cell--#{$span} {
+      width: #{$width};
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-media-query(mobile) {
+      #{$basename}cell--mobile-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-media-query(tablet) {
+      #{$basename}cell--tablet-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-media-query(desktop) {
+      #{$basename}cell--desktop-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-max-media-query(mobile) {
+      #{$basename}cell--lt-mobile-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-max-media-query(tablet) {
+      #{$basename}cell--lt-tablet-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-min-media-query(tablet) {
+      #{$basename}cell--gt-tablet-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+  @for $span from 1 through 12 {
+    $width: $span / 12 * 100%;
+    @include get-min-media-query(desktop) {
+      #{$basename}cell--gt-desktop-#{$span} {
+        width: #{$width};
+      }
+    }
+  }
+
+  // generate equalize cell elements
+  @if $equlize {
+    @include generate-equlized-cells($className);
+
+    @include get-max-media-query(mobile) {
+      @include generate-equlized-cells($className, 'lt-mobile');
+    }
+    @include get-max-media-query(tablet) {
+      @include generate-equlized-cells($className, 'lt-tablet');
+    }
+    @include get-min-media-query(tablet) {
+      @include generate-equlized-cells($className, 'gt-tablet');
+    }
+    @include get-min-media-query(desktop) {
+      @include generate-equlized-cells($className, 'gt-desktop');
+    }
+    @include get-media-query(mobile) {
+      @include generate-equlized-cells($className, 'mobile');
+    }
+    @include get-media-query(tablet) {
+      @include generate-equlized-cells($className, 'tablet');
+    }
+    @include get-media-query(desktop) {
+      @include generate-equlized-cells($className, 'desktop');
+    }
+  }
+}
+
+// Set link effect
+@mixin set-link-line() {
+  @if $swc-link-line {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  } @else {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Set zoom effect
+@mixin set-zooming-hover($scale: 1.1) {
+  @include get-media-query(desktop) {
+    transition: transform $swc-basic-transition, box-shadow $swc-basic-transition;
+
+    &:hover {
+      transform: scale($scale);
+      box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

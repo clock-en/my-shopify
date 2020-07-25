@@ -1,0 +1,26 @@
+/* 
+ * swc-heading.scss
+ * 
+ * @memberOf typography/headings
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-h6-heading {
+  @include heading-core-styles;
+  position: relative;
+  margin: 1.5rem 0 1rem;
+  padding: 0;
+  
+  &__label {
+    font-size: calc(#{map-get($swc-heading-font-size, h6)} * 0.9);
+    @include get-media-query(tablet) {
+      font-size: calc(#{map-get($swc-heading-font-size, h6)} * 0.9);
+    }
+    @include get-media-query(desktop) {
+      font-size: map-get($swc-heading-font-size, h6);
+    }
+  }
+}

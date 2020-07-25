@@ -1,0 +1,40 @@
+/* 
+ * _mixins.scss
+ * 
+ * @memberOf typography/headings
+ */
+
+// Global Styles for heading components
+@mixin heading-core-styles() {
+
+  &__label {
+    @include global-reset;
+    line-height: $swc-heading-line-height;
+    font-weight: normal;
+
+    &__link {
+      color: map-get($swc-colors, black);
+      text-decoration: none;
+
+      @include get-media-query(desktop) {
+        transition: color $swc-basic-transition;
+        &:hover {
+          color: $swc-link-color;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: relative;
+        top: -0.1em;
+        display: inline-block;
+        width: 0.5em;
+        height: 0.5em;
+        margin-left: 0.3em;
+        border-top: 0.08em solid $swc-primary-theme;
+        border-right: 0.08em solid $swc-primary-theme;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

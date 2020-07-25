@@ -1,0 +1,52 @@
+/* 
+ * site-header.scss
+ * 
+ * @memberOf layouts
+ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  background-color: $primary-theme;
+  color: map-get($colors, white);
+  z-index: 100;
+
+  a {
+    color: map-get($colors, white);
+  }
+
+  &__brands {
+    display: block;
+  }
+
+  &__button {
+    @include get-media-query(desktop) {
+      display: none;
+    }
+  }
+  &__menu {
+    height: 100%;
+
+    @include get-media-query(desktop) {
+      a {
+        background-color: transparent;
+        transition: background-color 0.2s ease-out;
+        border-radius: 4px;
+
+        &:hover {
+          color: map-get($colors, white);
+          background-color: $primary-theme--light;
+        }
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

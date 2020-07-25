@@ -1,0 +1,19 @@
+/* 
+ * site-menu.scss
+ * 
+ * @memberOf grid-system
+ */
+
+.swc-grid {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 calc(-#{$swc-base-grid-gutter} / 2);
+
+  &__cell {
+    padding: 0 calc(#{$swc-base-grid-gutter} / 2);
+    width: auto;
+  }
+}
+
+// Generic grid width style
+@include generate-grid-elements('.swc-grid');

@@ -1,0 +1,25 @@
+/* 
+ * swc-definition-list.scss
+ * 
+ * @memberOf typography/lists
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-definition-list {
+  @include list-core-styles;
+  
+  @include kill-edge-child-margin(vertical);
+
+  > dt,
+  > dd {
+    margin: 0;
+  }
+
+  > dt {
+    font-weight: bold;
+    margin: 0.4em 0 0.2em;
+  }
+}

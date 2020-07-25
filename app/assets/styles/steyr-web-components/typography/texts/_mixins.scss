@@ -1,0 +1,11 @@
+/* 
+ * _mixins.scss
+ * 
+ * @memberOf typography/texts
+ */
+
+// Global Styles for text components
+@mixin text-core-styles() {
+  font-weight: normal;
+  font-style: normal;
+}

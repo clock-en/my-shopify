@@ -1,0 +1,51 @@
+/* 
+ * swc-anchor-list.scss
+ * 
+ * @memberOf typography/lists
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-anchor-list {
+  @include list-core-styles;
+  
+  > li {
+    position: relative;
+    padding-left: 1.3em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc((1em * #{$swc-base-line-height}) * 0.5);
+      left: 0.25em;
+      width: 0.5em;
+      height: 0.5em;
+      border-right: 2px solid map-get($swc-colors, gray);
+      border-bottom: 2px solid map-get($swc-colors, gray);
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  &--primary > li::before {
+    border-color: $swc-primary-theme;
+  }
+  &--primary-light > li::before {
+    border-color: $swc-primary-theme--light;
+  }
+  &--primary-dark > li::before {
+    border-color: $swc-primary-theme--dark;
+  }
+
+  &--secondary > li::before {
+    border-color: $swc-secondary-theme;
+  }
+  &--secondary-light > li::before {
+    border-color: $swc-secondary-theme--light;
+  }
+  &--secondary-dark > li::before {
+    border-color: $swc-secondary-theme--dark;
+  }
+
+}

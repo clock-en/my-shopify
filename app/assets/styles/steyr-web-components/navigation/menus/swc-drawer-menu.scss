@@ -1,0 +1,53 @@
+/* 
+ * site-menu.scss
+ * 
+ * @memberOf navigation/menu
+ */
+
+// Import partials
+@import './mixins';
+
+.swc-drawer-menu {
+  @include menu-core-styles;
+  
+  &__label {
+    display: block;
+    font-weight: bold;
+    padding: 1rem;
+
+    @include get-max-media-query(tablet) {
+      border-bottom: 1px dotted map-get($swc-colors, gray);
+    }
+    @include get-media-query(desktop) {
+      padding: 0.5rem 1rem;
+    }
+  }
+  &__label.is-current {
+    background-color: $swc-notice-bg-color;
+    font-weight: bold;
+  }
+
+  &__item &__item &__label {
+    font-size: 0.9em;
+  }
+
+  &__item {
+    a {
+      font-weight: normal;
+    }
+    @include get-media-query(desktop) {
+      a {
+        transition: background-color $swc-basic-transition;
+
+        &:hover {
+          background-color: $swc-notice-bg-color;
+        }
+      }
+    }
+  }
+  @include get-max-media-query(tablet) {
+    &__item:last-child &__label {
+      border-bottom: 1px solid map-get($swc-colors, light-gray);
+    }
+  }
+}

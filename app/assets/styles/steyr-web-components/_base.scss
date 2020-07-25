@@ -1,0 +1,64 @@
+/* 
+ * _base.scss
+ */
+
+// Base Styles
+html {
+  font-size: get-base-font-size(map-get($swc-base-font-pixel, desktop));
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+
+  @include get-media-query(tablet) {
+    font-size: get-base-font-size(map-get($swc-base-font-pixel, tablet));
+  }
+
+  @include get-media-query(mobile) {
+    font-size: get-base-font-size(map-get($swc-base-font-pixel, mobile));
+  }
+}
+body {
+  background-color: map-get($swc-colors, white);
+  color: map-get($swc-colors, black);
+  font-size: 1rem;
+  font-family: get-base-font-type($swc-base-font-type);
+  line-height: $swc-base-line-height;
+
+  *,
+  *::before,
+  *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+// Link Styles
+a {
+  color: $swc-link-color;
+
+  @include set-link-line();
+}
+
+// Form Styles
+input,
+select,
+textarea,
+button,
+pre {
+  border-radius: 0;
+  box-shadow: none;
+  color: map-get($swc-colors, black);
+  font-size: 1rem;
+  font-family: get-base-font-type($swc-base-font-type);
+  line-height: $swc-base-line-height;
+}
+
+// Image Styles
+img {
+  width: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}

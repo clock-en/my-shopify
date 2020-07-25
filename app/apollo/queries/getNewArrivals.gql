@@ -1,0 +1,38 @@
+query getNewArrivals($count: Int!, $cursor: String) {
+  products(first: $count, after: $cursor, sortKey: CREATED_AT, reverse: true) {
+    edges {
+      cursor
+      node {
+        collections(first: 3) {
+          edges {
+            node {
+              title
+              handle
+            }
+          }
+        }
+        title
+        handle
+        tags
+        images(first: 1) {
+          edges {
+            node {
+              originalSrc
+            }
+          }
+        }
+        onlineStoreUrl
+        priceRange {
+          maxVariantPrice {
+            amount
+          }
+          minVariantPrice {
+            amount
+          }
+        }
+        totalInventory
+        id
+      }
+    }
+  }
+}

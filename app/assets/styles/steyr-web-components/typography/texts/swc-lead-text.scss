@@ -1,0 +1,16 @@
+/* 
+ * swc-lead-text.scss
+ * 
+ * @memberOf typography/texts
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-lead-text {
+  @include text-core-styles;
+
+  font-size: 1.25rem;
+  font-weight: bold;
+}

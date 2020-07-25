@@ -1,0 +1,72 @@
+/* 
+ * _variables.scss
+ */
+
+// Theme Colors
+$swc-colors: (
+  white: #fff,
+  black: #212121,
+  gray: #bdbdbd,
+  light-gray: #efefef,
+  dark-gray: #8d8d8d
+) !default;
+
+$swc-primary-theme: #5c6bc0 !default;
+$swc-primary-theme--light: #8e99f3 !default;
+$swc-primary-theme--dark: #26418f !default;
+$swc-primary-bg-theme: #e8eaf6 !default;
+$swc-secondary-theme: #9ccc65 !default;
+$swc-secondary-theme--light: #cfff95 !default;
+$swc-secondary-theme--dark: #6b9b37 !default;
+$swc-secondary-bg-theme: #f1f8e9 !default;
+
+$swc-success-color: #00695c !default;
+$swc-success-bg-color: #e0f2f1 !default;
+$swc-warning-color: #f9a825 !default;
+$swc-warning-bg-color: #fffde7 !default;
+$swc-alert-color: #c62828 !default;
+$swc-alert-bg-color: #ffebee !default;
+$swc-notice-color: #0277bd !default;
+$swc-notice-bg-color: #e1f5fe !default;
+
+$swc-link-color: #0288d1 !default;
+$swc-link-line: true !default;
+$swc-alpha-rate: 0.7;
+
+// Font Settings
+$swc-sans-serif: '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体',
+  'YuGothic', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ',
+  Meiryo, sans-serif !default;
+$swc-serif: '游明朝 Medium', 'Yu Mincho Medium', '游明朝体', 'YuMincho',
+  'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'HiraMinProN-W3', serif !default;
+$swc-base-font-type: sans-serif !default;
+$swc-base-font-pixel: (
+  desktop: 16,
+  tablet: 14,
+  mobile: 13
+) !default;
+$swc-base-line-height: 1.6 !default;
+
+// Media Queries
+$swc-breakpoints: (
+  desktop: 840px,
+  tablet: 480px,
+  mobile: 0px
+) !default;
+
+// Effect Settings
+$swc-basic-transition: 0.2s ease-out;
+
+$swc-text-inputs: '[type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea';
+
+// Utility Variables
+$swc-font-weight-values: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900
+);
+$swc-base-grid-gutter: 2em !default;
+

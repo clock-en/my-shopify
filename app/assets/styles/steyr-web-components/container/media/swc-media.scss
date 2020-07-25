@@ -1,0 +1,23 @@
+/* 
+ * swc-media.scss
+ * 
+ * @memberOf container/media
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-media {
+  @include global-reset;
+  @include media-core-styles;
+
+  &__frame {
+    display: inline-block;
+  }
+
+  &__caption {
+    font-size: 0.85rem;
+    margin: 0.5em 0 0;
+  }
+}

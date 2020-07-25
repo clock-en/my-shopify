@@ -1,0 +1,12 @@
+/* 
+ * _mixins.scss
+ * 
+ * @memberOf attachment/chips
+ */
+
+// Global Styles for menu components
+@mixin chip-core-styles() {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+}

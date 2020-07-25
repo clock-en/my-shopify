@@ -1,0 +1,27 @@
+/* 
+ * swc-primary.scss
+ * 
+ * @memberOf utility/themes
+ */
+.swc-primary {
+  &-text {
+    color: $swc-primary-theme !important;
+  }
+  &-light-text {
+    color: $swc-primary-theme--light !important;
+  }
+  &-dark-text {
+    color: $swc-primary-theme--dark !important;
+  }
+  &-bg {
+    color: #fff !important;
+    background-color: $swc-primary-theme !important;
+  }
+  &-light-bg {
+    background-color: $swc-primary-theme--light !important;
+  }
+  &-dark-bg {
+    color: #fff !important;
+    background-color: $swc-primary-theme--dark !important;
+  }
+}

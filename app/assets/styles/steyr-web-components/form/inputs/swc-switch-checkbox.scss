@@ -1,0 +1,62 @@
+/* 
+ * swc-switch-checkbox.scss
+ * 
+ * @memberOf form/inputs
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-switch-checkbox {
+  display: inline-block;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: none;
+  }
+
+  &__shape {
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 1.5em;
+    background-color: map-get($swc-colors, gray);
+    border: none;
+    border-radius: 0.75em;
+    vertical-align: bottom;
+    cursor: pointer;
+  }
+
+  &__shape::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 3px;
+    width: calc(1.5em - 6px);
+    height: calc(1.5em - 6px);
+    background-color: map-get($swc-colors, white);
+    border: none;
+    border-radius: 50%;
+    opacity: 1;
+    transform: translateY(-50%);
+    transition: left $swc-basic-transition;
+  }
+
+  :checked + &__shape {
+    background-color: $swc-notice-color;
+  }
+
+  :checked + &__shape::before {
+    left: calc(1.5em + 3px);
+  }
+
+  :disabled + &__shape {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  :disabled + &__shape::before {
+    display: none;
+  }
+}

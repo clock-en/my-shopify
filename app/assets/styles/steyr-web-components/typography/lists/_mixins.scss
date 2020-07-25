@@ -1,0 +1,22 @@
+/* 
+ * _mixins.scss
+ * 
+ * @memberOf typography/lists
+ */
+
+// Global Styles for list components
+@mixin list-core-styles() {
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
+
+  > li > ul,
+  > li > ol {
+    margin-top: 0.5em;
+  }
+  &:not(.swc-grid-list) > li {
+    + li {
+      margin-top: 0.5em;
+    }
+  }
+}

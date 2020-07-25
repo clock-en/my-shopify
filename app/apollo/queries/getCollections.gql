@@ -1,0 +1,11 @@
+query getCollections($count: Int!) {
+  collections(first: $count) {
+    edges {
+      cursor
+      node {
+        title
+        handle
+      }
+    }
+  }
+}

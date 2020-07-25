@@ -1,0 +1,18 @@
+/* 
+ * _variables.scss
+ * 
+ * @memberOf typography/headings
+ */
+
+// Set h1 font-size, other heading size are set automatically.
+$swc-top-heading-size: 3rem !default;
+$swc-heading-font-size: (
+  h1: #{$swc-top-heading-size},
+  h2: calc(#{$swc-top-heading-size} * 0.8),
+  h3: calc(#{$swc-top-heading-size} * 0.7),
+  h4: calc(#{$swc-top-heading-size} * 0.6),
+  h5: calc(#{$swc-top-heading-size} * 0.5),
+  h6: calc(#{$swc-top-heading-size} * 0.4)
+) !default;
+
+$swc-heading-line-height: 1.2 !default;

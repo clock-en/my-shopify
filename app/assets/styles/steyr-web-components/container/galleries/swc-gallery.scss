@@ -1,0 +1,27 @@
+/* 
+ * swc-gallery.scss
+ * 
+ * @memberOf container/images
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+$base-gallery-name: swc-gallery;
+
+.#{$base-gallery-name} {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 calc(-#{$swc-base-grid-gutter} / 4) 2em;
+
+  &__cell {
+    padding: calc(#{$swc-base-grid-gutter} / 4);
+    width: 100%;
+    
+    @include kill-edge-child-margin(vertical);
+  }
+}
+
+// Generic grid width style
+@include generate-grid-elements('.#{$base-gallery-name}');

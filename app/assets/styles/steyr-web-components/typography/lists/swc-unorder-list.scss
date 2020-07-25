@@ -1,0 +1,51 @@
+/* 
+ * swc-unordered-list.scss
+ * 
+ * @memberOf typography/lists
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-unorder-list {
+  @include list-core-styles;
+  
+  > li {
+    position: relative;
+    padding-left: 1.3em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc((1em * #{$swc-base-line-height}) * 0.5);
+      left: 0.25em;
+      width: 0.3em;
+      height: 0.3em;
+      border-radius: 50%;
+      background-color: map-get($swc-colors, black);
+      transform: translateY(-50%);
+    }
+  }
+
+  &--primary > li::before {
+    background-color: $swc-primary-theme;
+  }
+  &--primary-light > li::before {
+    background-color: $swc-primary-theme--light;
+  }
+  &--primary-dark > li::before {
+    background-color: $swc-primary-theme--dark;
+  }
+
+  &--secondary > li::before {
+    background-color: $swc-secondary-theme;
+  }
+  &--secondary-light > li::before {
+    background-color: $swc-secondary-theme--light;
+  }
+  &--secondary-dark > li::before {
+    background-color: $swc-secondary-theme--dark;
+  }
+
+}

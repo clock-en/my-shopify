@@ -1,0 +1,30 @@
+/* 
+ * _functions.scss
+ */
+
+// Get base font-size
+// @param {Number}
+@function get-base-font-size($px) {
+  @return ($px / 16) * 100%;
+}
+
+// Set margin-bottom to children equality.
+@function get-base-font-type($type) {
+  @return if($type == sans-serif, $swc-sans-serif, $swc-serif);
+}
+
+// Get min breakpoint
+@function get-min-breakpoint($device) {
+  $min: map-get($swc-breakpoints, $device);
+
+  @return if($min > 0, $min, null);
+}
+
+// Get max breakpoint
+@function get-max-breakpoint($device) {
+  $names: map-keys($swc-breakpoints);
+  $n: index($names, $device);
+  $prev: if($n > 1, nth($names, $n - 1), null);
+
+  @return if($prev, (get-min-breakpoint($prev) - 1px), null);
+}

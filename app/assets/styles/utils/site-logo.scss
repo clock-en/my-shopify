@@ -1,0 +1,14 @@
+/* 
+ * site-logo.scss
+ * 
+ * @memberOf utils
+ */
+
+.site-logo {
+  display: inline-block;
+  color: map-get($colors, white);
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.25em;
+  text-decoration: none;
+}

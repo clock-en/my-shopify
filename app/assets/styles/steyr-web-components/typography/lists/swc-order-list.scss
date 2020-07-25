@@ -1,0 +1,79 @@
+/* 
+ * swc-manual-order-list.scss
+ * 
+ * @memberOf typography/lists
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-order-list {
+  @include list-core-styles;
+  
+  > li {
+    position: relative;
+    padding-left: 2em;
+  }
+
+  &__marker {
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0.25em;
+    width: 1.5em;
+    text-align: center;
+
+    &::after {
+      content: "#{$swc-list-order-delimiter} ";
+    }
+  }
+
+  &--primary &__marker,
+  &--primary > li::before {
+    color: $swc-primary-theme;
+  }
+  &--primary-light &__marker,
+  &--primary-light > li::before {
+    color: $swc-primary-theme--light;
+  }
+  &--primary-dark &__marker,
+  &--primary-dark > li::before {
+    color: $swc-primary-theme--dark;
+  }
+
+  &--secondary &__marker,
+  &--secondary > li::before {
+    color: $swc-secondary-theme;
+  }
+  &--secondary-light &__marker,
+  &--secondary-light > li::before {
+    color: $swc-secondary-theme--light;
+  }
+  &--secondary-dark &__marker,
+  &--secondary-dark > li::before {
+    color: $swc-secondary-theme--dark;
+  }
+
+  &--auto {
+    counter-reset: swc-order-list;
+
+    > li {
+      position: relative;
+      padding-left: 2em;
+  
+      &::before {
+        counter-increment: swc-order-list;
+        content: counter(swc-order-list) "#{$swc-list-order-delimiter} ";
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        left: 0.25em;
+        width: 1.5em;
+        text-align: center;
+      }
+    }
+  }
+  
+
+}

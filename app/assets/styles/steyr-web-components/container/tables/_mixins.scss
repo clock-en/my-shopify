@@ -1,0 +1,45 @@
+/* 
+ * _mixins.scss
+ * 
+ * @memberOf container/tables
+ */
+
+// Global Styles for menu components
+@mixin table-core-styles() {
+  margin: 2em 0;
+  border-spacing: 0;
+
+  caption {
+    text-align: left;
+
+    @include kill-edge-child-margin(vertical);
+  }
+  caption:first-child {
+    margin: 0 0 1rem !important;
+  }
+  caption:last-child {
+    margin: 1rem 0 0 !important;
+  }
+
+  th,
+  td {
+    text-align: left;
+
+    @include kill-edge-child-margin(vertical);
+  }
+}
+
+@mixin table-vertical-styles() {
+  thead {
+    display: none;
+  }
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+  td + td {
+    border-top: none;
+  }
+}

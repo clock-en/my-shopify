@@ -1,0 +1,60 @@
+/* 
+ * page-drawer.scss
+ * 
+ * @memberOf layouts
+ */
+
+@mixin label-links() {
+  > a {
+    color: map-get($colors, black);
+    text-decoration: none;
+    transition: color 0.2s ease-out;
+
+    &:hover {
+      color: $secondary-theme;
+    }
+  }
+}
+
+.page-drawer {
+  &__header {
+    padding: 1rem;
+
+    @include kill-edge-child-margin(vertical);
+
+  }
+  
+  &__heading {
+    font-size: 1.6rem;
+
+    @include label-links;
+  }
+
+  &__section {
+    padding: 0 1rem;
+    @include kill-edge-child-margin(vertical);
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+
+    @include label-links;
+  }
+
+  &__menu {
+    &__label {
+      padding-left: 4rem;
+    }
+
+    &--primary {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+    &--primary > li > &__label {
+      padding-left: 2.5rem;
+    }
+  }
+  
+}

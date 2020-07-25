@@ -1,0 +1,53 @@
+/* 
+ * site-menu.scss
+ * 
+ * @memberOf navigation/menu
+ */
+
+// Import partials
+@import './mixins';
+
+.swc-menu {
+  @include menu-core-styles;
+
+  &__label {
+    position: relative;
+    display: inline-block;
+
+    @include get-media-query(desktop) {
+      transition: color $swc-basic-transition;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0.25em;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: $swc-primary-theme;
+        transition: width $swc-basic-transition;
+      }
+      &:hover {
+        color: $swc-primary-theme;
+
+        &::after {
+          width: 100%; 
+        }
+      }
+    }
+  }
+
+  &--row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0 0.5em;
+  }
+  &--row &__label {
+    padding: 0.5em;
+
+    &::after {
+      height: 1px;
+    }
+  }
+}

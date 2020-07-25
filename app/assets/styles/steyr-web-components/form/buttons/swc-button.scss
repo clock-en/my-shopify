@@ -1,0 +1,40 @@
+/* 
+ * swc-button.scss
+ * 
+ * @memberOf form/buttons
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-button {
+  @include button-core-styles;
+  border: 1px solid map-get($swc-colors , black );
+  color: map-get($swc-colors , black );
+
+  &--primary {
+    border-color: $swc-primary-theme;
+    color: $swc-primary-theme;
+  }
+  &--primary-light {
+    border-color: $swc-primary-theme--light;
+    color: $swc-primary-theme--light;
+  }
+  &--primary-dark {
+    border-color: $swc-primary-theme--dark;
+    color: $swc-primary-theme--dark;
+  }
+  &--secondary {
+    border-color: $swc-secondary-theme;
+    color: $swc-secondary-theme;
+  }
+  &--secondary-light {
+    border-color: $swc-secondary-theme--light;
+    color: $swc-secondary-theme--light;
+  }
+  &--secondary-dark {
+    border-color: $swc-secondary-theme--dark;
+    color: $swc-secondary-theme--dark;
+  }
+}

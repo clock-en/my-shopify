@@ -1,0 +1,25 @@
+/* 
+ * _variables.scss
+ */
+
+// Theme Colors
+$colors: (
+  white: #fafafa,
+  black: #212121,
+  gray: #bdbdbd,
+  light-grey: #eeeeee
+);
+$primary-theme: #ef5350;
+$primary-theme--light: #ff867c;
+$primary-theme--dark: #b61827;
+$secondary-theme: #26a69a;
+$secondary-theme--light: #64d8cb;
+$secondary-theme--dark: #00766c;
+$alpha-rate: 0.7;
+
+// Font Settings
+$sans-serif: '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', 'YuGothic',
+  'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo,
+  sans-serif;
+$serif: '游明朝 Medium', 'Yu Mincho Medium', '游明朝体', 'YuMincho',
+  'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'HiraMinProN-W3', serif;

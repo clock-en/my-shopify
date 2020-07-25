@@ -1,0 +1,33 @@
+/* 
+ * swc-select.scss
+ * 
+ * @memberOf form/inputs
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-select {
+  @include input-core-styles;
+  @include field-size-styles;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.8em;
+    width: 0.6em;
+    height: 0.6em;
+    border-right: 2px solid map-get($swc-colors, black);
+    border-bottom: 2px solid map-get($swc-colors, black);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  select {
+    appearance: none;
+    padding: 1rem 2.5rem 1rem 1rem;
+    text-transform: none;
+    cursor: pointer;
+  }
+}

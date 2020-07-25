@@ -1,0 +1,30 @@
+/* 
+ * swc-checkbox.scss
+ * 
+ * @memberOf form/inputs
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-radio {
+  @include check-core-styles;
+
+  &__label::before {
+    border-radius: 50%;
+  }
+  &__label::after {
+    top: calc(((1em * #{$swc-base-line-height} - 0.8em) / 2) + 1px );
+    left: calc(0.35em + 1px);
+    width: calc(0.8em - 2px);
+    height: calc(0.8em - 2px);
+    border-radius: 50%;
+    background-color: $swc-notice-color;
+    border: 1px solid #fff;
+  }
+
+  + .swc-radio {
+    margin-top: 0.25em;
+  }
+}

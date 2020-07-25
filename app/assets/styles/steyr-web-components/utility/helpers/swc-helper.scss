@@ -1,0 +1,126 @@
+/* 
+ * swc-helper.scss
+ * 
+ * @memberOf utility/helpers
+ */
+.swc-helper {
+  // Elements visibility helpers
+  &-off-screen {
+    display: none;
+
+    @include get-max-media-query(mobile) {
+      &--lt-mobile {
+        display: none;
+      }
+    }
+    @include get-max-media-query(tablet) {
+      &--lt-tablet {
+        display: none;
+      }
+    }
+    @include get-min-media-query(tablet) {
+      &--gt-tablet {
+        display: none;
+      }
+    }
+    @include get-min-media-query(desktop) {
+      &--gt-desktop {
+        display: none;
+      }
+    }
+    @include get-media-query(mobile) {
+      &--mobile {
+        display: none;
+      }
+    }
+    @include get-media-query(tablet) {
+      &--tablet {
+        display: none;
+      }
+    }
+    @include get-media-query(desktop) {
+      &--desktop {
+        display: none;
+      }
+    }
+  }
+
+  // Text position helpers
+  &-left {
+    text-align: left !important;
+  }
+  &-center {
+    text-align: center !important;
+  }
+  &-right {
+    text-align: right !important;
+  }
+  &-top {
+    vertical-align: top !important;
+  }
+  &-middle {
+    vertical-align: middle !important;
+  }
+  &-bottom {
+    vertical-align: bottom !important;
+  }
+
+  // Text decoration helpers
+  &-bold {
+    font-weight: bold !important;
+  }
+  &-italic {
+    font-style: italic !important;
+  }
+  &-uppercase {
+    text-transform: uppercase !important;
+  }
+  &-lowercase {
+    text-transform: lowercase !important;
+  }
+  &-underline {
+    text-decoration: underline !important;
+  }
+
+  // Images display helpers
+  &-standard-aspect,
+  &-wide-aspect,
+  &-square-aspect,
+  &-jumbotron-aspect {
+    position: relative;
+    display: block !important;
+    background-color: map-get($swc-colors, light-gray);
+
+    > img,
+    > video,
+    > iframe {
+      position: absolute;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      width: auto !important;
+      height: auto !important;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    > iframe {
+      width: 100% !important;
+      height: 100% !important;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+  &-standard-aspect {
+    padding-bottom: 75%;
+  }
+  &-wide-aspect {
+    padding-bottom: 56.25%;
+  }
+  &-square-aspect {
+    padding-bottom: 100%;
+  }
+  &-jumbotron-aspect {
+    padding-bottom: 28.125%;
+  }
+}

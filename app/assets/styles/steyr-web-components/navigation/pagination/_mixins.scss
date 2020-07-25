@@ -1,0 +1,12 @@
+/* 
+ * _mixins.scss
+ * 
+ * @memberOf navigation/pagination
+ */
+
+// Global Styles for menu components
+@mixin pagination-core-styles() {
+  @include global-reset;
+  margin: 0 0 2em;
+  
+}

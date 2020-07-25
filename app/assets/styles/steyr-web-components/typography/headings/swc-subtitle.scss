@@ -1,0 +1,61 @@
+/* 
+ * swc-subtitle.scss
+ * 
+ * @memberOf typography/headings
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+$base-subheading-name: swc-subtitle;
+
+.#{$base-subheading-name} {
+  @include heading-core-styles;
+  margin: 0;
+  color: map-get($swc-colors, dark-gray);
+  font-weight: normal;
+
+  &--h1 {
+    font-size: calc( #{map-get($swc-heading-font-size, h1)} * 0.6 ) !important;
+  }
+  &--h2 {
+    font-size: calc( #{map-get($swc-heading-font-size, h2)} * 0.6 ) !important;
+  }
+  &--h3 {
+    font-size: calc( #{map-get($swc-heading-font-size, h3)} * 0.6 ) !important;
+  }
+  &--h4 {
+    font-size: calc( #{map-get($swc-heading-font-size, h4)} * 0.6 ) !important;
+  }
+  &--h5 {
+    font-size: calc( #{map-get($swc-heading-font-size, h5)} * 0.6 ) !important;
+  }
+  &--h6 {
+    font-size: calc( #{map-get($swc-heading-font-size, h6)} * 0.6 ) !important;
+  }
+}
+
+h1.#{$base-subheading-name} {
+  font-size: calc( #{map-get($swc-heading-font-size, h1)} * 0.6 );
+}
+
+h2.#{$base-subheading-name} {
+  font-size: calc( #{map-get($swc-heading-font-size, h2)} * 0.6 );
+}
+
+h3.#{$base-subheading-name} {
+  font-size: calc( #{map-get($swc-heading-font-size, h3)} * 0.6 );
+}
+
+h4.#{$base-subheading-name} {
+  font-size: calc( #{map-get($swc-heading-font-size, h4)} * 0.6 );
+}
+
+h5.#{$base-subheading-name} {
+  font-size: calc( #{map-get($swc-heading-font-size, h5)} * 0.6 );
+}
+
+h6.#{$base-subheading-name} {
+  font-size: calc( #{map-get($swc-heading-font-size, h6)} * 0.6 );
+}

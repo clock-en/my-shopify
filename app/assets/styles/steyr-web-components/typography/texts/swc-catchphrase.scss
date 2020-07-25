@@ -1,0 +1,18 @@
+/* 
+ * swc-catchphrase.scss
+ * 
+ * @memberOf typography/texts
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-catchphrase {
+  @include text-core-styles;
+
+  font-family: $swc-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}

@@ -1,0 +1,27 @@
+/* 
+ * swc-secondary.scss
+ * 
+ * @memberOf utility/themes
+ */
+.swc-secondary {
+  &-text {
+    color: $swc-secondary-theme !important;
+  }
+  &-light-text {
+    color: $swc-secondary-theme--light !important;
+  }
+  &-dark-text {
+    color: $swc-secondary-theme--dark !important;
+  }
+  &-bg {
+    color: #fff !important;
+    background-color: $swc-secondary-theme !important;
+  }
+  &-light-bg {
+    background-color: $swc-secondary-theme--light !important;
+  }
+  &-dark-bg {
+    color: #fff !important;
+    background-color: $swc-secondary-theme--dark !important;
+  }
+}

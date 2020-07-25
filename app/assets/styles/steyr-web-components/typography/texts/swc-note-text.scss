@@ -1,0 +1,16 @@
+/* 
+ * swc-note-text.scss
+ * 
+ * @memberOf typography/texts
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-note-text {
+  @include text-core-styles;
+
+  font-size: 0.75rem;
+  color: map-get($swc-colors, gray);
+}

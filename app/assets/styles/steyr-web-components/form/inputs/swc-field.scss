@@ -1,0 +1,14 @@
+/* 
+ * swc-textfield.scss
+ * 
+ * @memberOf form/inputs
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-field {
+  @include global-reset();
+  margin: 1rem 0;
+}

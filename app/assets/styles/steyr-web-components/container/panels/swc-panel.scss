@@ -1,0 +1,166 @@
+/* 
+ * swc-panel.scss
+ * 
+ * @memberOf container/panels
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-panel {
+  @include panel-core-styles;
+  background-color: map-get($swc-colors , light-gray);
+  border: 1px solid map-get($swc-colors , dark-gray);
+  
+  &__header + &__body {
+    position: relative;
+  }
+  &__header + &__body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background-color: map-get($swc-colors , dark-gray);
+  }
+
+  &__header[aria-expanded] {
+    position: relative;
+    display: block;
+    color: map-get($swc-colors, black);
+    text-decoration: none;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translate(50%, -50%);
+      background-color: map-get($swc-colors , dark-gray);
+    }
+    &::before {
+      width: 1em;
+      height: 2px;
+    }
+    &::after {
+      height: 1em;
+      width: 2px;
+      transition: transform $swc-basic-transition;
+    }
+  }
+  &__header[aria-expanded="true"] {
+    &::after {
+      transform: translate(50%, -50%) rotate(90deg);
+    }
+  }
+
+  &__body[aria-hidden] {
+    position: relative;
+    margin: 0 0 -4rem;
+    padding: 1rem 1rem 5rem;
+    max-height: 99999px;
+    overflow: hidden;
+    transition: max-height $swc-basic-transition, padding-top $swc-basic-transition, padding-bottom $swc-basic-transition;
+  }
+  &__body[aria-hidden="true"] {
+    height: 0;
+    visibility: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    transition-duration: 0.2s;
+  }
+  &__body[aria-hidden="true"] * {
+    visibility: hidden;
+  }
+
+  &--primary {
+    background-color: $swc-primary-bg-theme;
+    border-color: $swc-primary-theme;
+  }
+  &--primary &__header + &__body::before {
+    background-color: $swc-primary-theme;
+  }
+  &--primary &__header[aria-expanded] {
+    &::before,
+    &::after {
+      background-color: $swc-primary-theme;
+    }
+  }
+
+  &--secondary {
+    background-color: $swc-secondary-bg-theme;
+    border-color: $swc-secondary-theme;
+  }
+  &--secondary &__header + &__body::before {
+    background-color: $swc-secondary-theme--dark;
+  }
+  &--secondary &__header[aria-expanded] {
+    &::before,
+    &::after {
+      background-color: $swc-secondary-theme;
+    }
+  }
+
+  &--success {
+    background-color: $swc-success-bg-color;
+    border-color: $swc-success-color;
+  }
+  &--success &__header + &__body::before {
+    background-color: $swc-success-color;
+  }
+  &--success &__header[aria-expanded] {
+    &::before,
+    &::after {
+      background-color: $swc-success-color;
+    }
+  }
+
+  &--warning {
+    background-color: $swc-warning-bg-color;
+    border-color: $swc-warning-color;
+  }
+  &--warning &__header + &__body::before {
+    background-color: $swc-warning-color;
+  }
+  &--warning &__header[aria-expanded] {
+    &::before,
+    &::after {
+      background-color: $swc-warning-color;
+    }
+  }
+
+  &--alert {
+    background-color: $swc-alert-bg-color;
+    border-color: $swc-alert-color;
+  }
+  &--alert &__header + &__body::before {
+    background-color: $swc-alert-color;
+  }
+  &--alert &__header[aria-expanded] {
+    &::before,
+    &::after {
+      background-color: $swc-alert-color;
+    }
+  }
+
+  &--notice {
+    background-color: $swc-notice-bg-color;
+    border-color: $swc-notice-color;
+  }
+  &--notice &__header + &__body::before {
+    background-color: $swc-notice-color;
+  }
+  &--notice &__header[aria-expanded] {
+    &::before,
+    &::after {
+      background-color: $swc-notice-color;
+    }
+  }
+}

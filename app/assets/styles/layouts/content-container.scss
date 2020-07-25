@@ -1,0 +1,10 @@
+/* 
+ * content-container.scss
+ * 
+ * @memberOf layouts
+ */
+.content-container {
+  margin: 5em;
+
+  @include kill-edge-child-margin(vertical);
+}

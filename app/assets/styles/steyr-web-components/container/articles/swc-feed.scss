@@ -1,0 +1,77 @@
+/* 
+ * swc-feed.scss
+ * 
+ * @memberOf container/cards
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-feed {
+  margin: 3em 0;
+  
+  &__item {
+    padding: 1rem;
+
+    &__link {
+      position: relative;
+      display: block;
+      margin: -1rem;
+      padding: 1rem 2rem 1rem 1rem;
+      color: map-get($swc-colors, black);
+      text-decoration: none;
+      color: map-get($swc-colors, black);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0.25em;
+        width: 0.5em;
+        height: 0.5em;
+        border-top: 0.08em solid $swc-primary-theme;
+        border-right: 0.08em solid $swc-primary-theme;
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+
+  &__item + &__item {
+    border-top: 1px solid map-get($swc-colors, gray);
+  }
+
+  &__date {
+    display: block;
+    color: map-get($swc-colors, dark-gray);
+    font-size: 0.9rem;
+  }
+
+  &__attachments {
+    display: flex;
+    align-items: center;
+    margin: 0 -0.25em 0.25em;
+
+    > * {
+      margin: 0 0.25em;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: normal;
+    @include get-media-query(desktop) {
+      transition: color $swc-basic-transition;
+    }
+  }
+  @include get-media-query(desktop) {
+    transition: color $swc-basic-transition;
+
+    &__item__link:hover &__title {
+      color: $swc-link-color;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+/* 
+ * main.scss
+ *
+ * If you want to set variables to change styles, You write codes here before import steyr files.
+ * e.g.) $base-font-type: serif;
+ */
+
+// Import Global Configs.
+@import './variables';
+
+// Override Steyr Variables.
+$swc-colors: $colors;
+$swc-primary-theme: $primary-theme;
+$swc-primary-theme--light: $primary-theme--light;
+$swc-primary-theme--dark: $primary-theme--dark;
+$swc-secondary-theme: $secondary-theme;
+$swc-secondary-theme--light: $secondary-theme--light;
+$swc-secondary-theme--dark: $secondary-theme--dark;
+$swc-alpha-rate: $alpha-rate;
+$swc-sans-serif: $sans-serif;
+$swc-serif: $serif;
+
+// Use Steyr Web Components.
+@import './steyr-web-components/steyr';
+
+// If you want to add or override Styles, You write codes here
+
+// Import Layout Components
+@import './layouts/site-header';
+@import './layouts/site-footer';
+@import './layouts/page-container';
+@import './layouts/page-content';
+@import './layouts/page-drawer';
+@import './layouts/content-container';
+
+// Import Utils Components
+@import './utils/site-logo';
+
+// Import Page Styles
+@import './pages/home';
+
+.product-tags {
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
+
+  > * {
+    margin: 0.25rem;
+  }
+}

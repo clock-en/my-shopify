@@ -1,0 +1,53 @@
+/* 
+ * swc-table.scss
+ * 
+ * @memberOf container/tables
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-table {
+  @include table-core-styles;
+  width: 100%;
+	border-collapse: separate;
+  border-bottom: 1px solid map-get($swc-colors, gray);
+	border-left: 1px solid map-get($swc-colors, gray);
+
+
+  th,
+  td {
+    padding: 0.5rem;
+    border-top: 1px solid map-get($swc-colors, gray);
+	  border-right: 1px solid map-get($swc-colors, gray);
+  }
+
+  th {
+    background-color: map-get($swc-colors, light-gray);
+  }
+
+  @include get-media-query(mobile) {
+    &--mobile-vertical {
+      @include table-vertical-styles;
+    }
+    &--mobile-scroll,
+    &--scroll {
+      width: 640px;
+    }
+  }
+  @include get-media-query(tablet) {
+    &--tablet-vertical {
+      @include table-vertical-styles;
+    }
+    &--tablet-scroll,
+    &--scroll {
+      width: 1280px;
+    }
+  }
+  @include get-max-media-query(tablet) {
+    &--vertical {
+      @include table-vertical-styles;
+    }
+  }
+}

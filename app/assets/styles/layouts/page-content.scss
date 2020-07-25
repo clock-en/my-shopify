@@ -1,0 +1,25 @@
+/* 
+ * page-content.scss
+ * 
+ * @memberOf layouts
+ */
+.page-content {
+  position: relative;
+  z-index: 2;
+
+  &[data-sidebar="true"] &__main-section {
+    padding: 50px 0 5em 300px;
+
+    @include kill-edge-child-margin(vertical);
+  }
+  &__sidebar-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    padding: 5em 0;
+    border-right: 1px solid map-get($swc-colors, light-grey);
+    z-index: 2;
+  }
+}

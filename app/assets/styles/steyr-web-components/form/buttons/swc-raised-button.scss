@@ -1,0 +1,41 @@
+/* 
+ * swc-raised-button.scss
+ * 
+ * @memberOf form/buttons
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-raised-button {
+  @include button-core-styles;
+  border: 1px solid map-get($swc-colors , black );
+  background-color: map-get($swc-colors , black );
+  color: map-get($swc-colors , white );
+  
+  &--primary {
+    border-color: $swc-primary-theme;
+    background-color: $swc-primary-theme;
+  }
+  &--primary-light {
+    border-color: $swc-primary-theme--light;
+    background-color: $swc-primary-theme--light;
+  }
+  &--primary-dark {
+    border-color: $swc-primary-theme--dark;
+    background-color: $swc-primary-theme--dark;
+  }
+  &--secondary {
+    border-color: $swc-secondary-theme;
+    background-color: $swc-secondary-theme;
+  }
+  &--secondary-light {
+    border-color: $swc-secondary-theme--light;
+    background-color: $swc-secondary-theme--light;
+  }
+  &--secondary-dark {
+    border-color: $swc-secondary-theme--dark;
+    background-color: $swc-secondary-theme--dark;
+  }
+}

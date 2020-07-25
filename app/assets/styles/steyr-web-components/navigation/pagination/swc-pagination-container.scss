@@ -1,0 +1,15 @@
+/* 
+ * site-menu.scss
+ * 
+ * @memberOf navigation/pagination
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-pagination-container {
+  margin: 2em 0;
+
+  @include kill-edge-child-margin(vertical);  
+}

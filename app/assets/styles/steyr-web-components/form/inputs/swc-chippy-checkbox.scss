@@ -1,0 +1,83 @@
+/* 
+ * swc-chippy-checkbox.scss
+ * 
+ * @memberOf form/inputs
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-chippy-checkbox {
+  display: inline-block;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: none;
+  }
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 1.5em 0.5em calc(2em + 10px);
+    background-color: map-get($swc-colors, white);
+    border: 1px solid $swc-inputs-border-color;
+    border-radius: 9999px;
+    vertical-align: bottom;
+    font-size: .75rem;
+    cursor: pointer;
+    transition: color $swc-basic-transition, background-color $swc-basic-transition, border-color $swc-basic-transition;
+  }
+
+  &__label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    width: 2em;
+    height: 2em;
+    background-color: map-get($swc-colors, white);
+    border: 1px solid $swc-inputs-border-color;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: background-color $swc-basic-transition, border-color $swc-basic-transition;
+  }
+
+  &__label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(3px + 1em);
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-bottom: 2px solid map-get($swc-colors, white);
+    border-left: 2px solid map-get($swc-colors, white);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transition: width $swc-basic-transition;
+  }
+
+  :checked + &__label {
+    color: $swc-notice-color;
+    background-color: $swc-notice-bg-color;
+    border-color: $swc-notice-color;
+  }
+
+  :checked + &__label::before {
+    background-color: $swc-notice-color;
+    border-color: $swc-notice-color;
+  }
+
+  :checked + &__label::after {
+    width: 0.7em;
+    height: 0.5em;
+  }
+
+  :disabled + &__label {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  :disabled + &__label::before {
+    display: none;
+  }
+}

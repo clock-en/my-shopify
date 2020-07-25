@@ -1,0 +1,47 @@
+/* 
+ * swc-textfield.scss
+ * 
+ * @memberOf form/inputs
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-textfield {
+  @include input-core-styles;
+  @include field-size-styles;
+
+  #{$swc-text-inputs} {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem 1rem 0.5rem;
+    transition: border-color $swc-basic-transition;
+    resize: none;
+  }
+  :disabled {
+    background-color: map-get($swc-colors, light-gray);
+    cursor: not-allowed;
+  }
+  
+
+  /* 疑似placeholder要素 */
+  .pseudo-placeholder {
+    position: absolute;
+    top: 1.1rem;
+    left: 1rem;
+    z-index: 1;
+    color: map-get($swc-colors, gray);
+    line-height: 1;
+    white-space: nowrap;
+    transition: top $swc-basic-transition, font-size $swc-basic-transition;
+  }
+
+  &.is-focus > .pseudo-placeholder,
+  &.is-complete > .pseudo-placeholder {
+    position: absolute;
+    top: 0.5rem;
+    font-size: 0.75em;
+    transform: none;
+  }
+}

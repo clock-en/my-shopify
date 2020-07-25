@@ -1,0 +1,43 @@
+/* 
+ * swc-heading.scss
+ * 
+ * @memberOf typography/headings
+ */
+
+// Import partials
+@import './variables';
+@import './mixins';
+
+.swc-h1-heading {
+  @include heading-core-styles;
+  position: relative;
+  margin: 3.5rem 0 2rem;
+  padding-bottom: 1rem;
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+  }
+  &::before {
+    width: 100%;
+    background-color: map-get($swc-colors, gray);
+  }
+  &::after {
+    width: 33.3333%;
+    background-color: $swc-primary-theme;
+  }
+  
+  &__label {
+    font-size: calc(#{map-get($swc-heading-font-size, h1)} * 0.7);
+    @include get-media-query(tablet) {
+      font-size: calc(#{map-get($swc-heading-font-size, h1)} * 0.8);
+    }
+    @include get-media-query(desktop) {
+      font-size: map-get($swc-heading-font-size, h1);
+    }
+  }
+}
