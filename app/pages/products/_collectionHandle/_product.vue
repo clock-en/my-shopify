@@ -4,10 +4,7 @@
       <div class="product-features">
         <div class="swc-grid swc-grid--equalize-2">
           <div class="swc-grid__cell">
-            <div
-              v-if="product.media && product.media.edges.length > 0"
-              class="swc-grid"
-            >
+            <div v-if="product.media && product.media.edges.length > 0" class="swc-grid">
               <div
                 v-for="(image, index) in product.media.edges"
                 :key="image.node.previewImage.id"
@@ -28,54 +25,42 @@
             <div class="swc-h1-heading">
               <h1 class="swc-h1-heading__label">{{ product.title }}</h1>
             </div>
-            <div
-              v-if="product.tags && product.tags.length > 0"
-              class="product-tags"
-            >
+            <div v-if="product.tags && product.tags.length > 0" class="product-tags">
               <div
                 v-for="tag in product.tags"
                 :key="tag"
                 class="swc-chip swc-chip--secondary"
-              >
-                {{ tag }}
-              </div>
+              >{{ tag }}</div>
             </div>
-            <div v-if="product.collections" class="swc-lead-text">
-              コレクション：{{ product.collections.edges[0].node.title }}
-            </div>
+            <div
+              v-if="product.collections"
+              class="swc-lead-text"
+            >コレクション：{{ product.collections.edges[0].node.title }}</div>
             <div v-if="product.priceRange" class="swc-lead-text">
               価格：¥{{
-                product.priceRange.minVariantPrice.amount | roundUp | digitComma
+              product.priceRange.minVariantPrice.amount | roundUp | digitComma
               }}
               <template
                 v-if="
                   product.priceRange.minVariantPrice.amount !==
                     product.priceRange.maxVariantPrice.amount
                 "
-                >～</template
-              >
+              >～</template>
             </div>
             <div class="swc-lead-text">
               在庫：
-              <template v-if="product.totalInventory">
-                {{ product.totalInventory }}
-              </template>
+              <template v-if="product.totalInventory">{{ product.totalInventory }}</template>
               <template v-else>売り切れ</template>
             </div>
             <script>
-              var Shopify = Shopify || {};
-              Shopify.shop = 'xn-cck2ba4clb3006j264b.myshopify.com';
+  var Shopify = Shopify || {};
+  Shopify.shop = 'xn-cck2ba4clb3006j264b.myshopify.com';
             </script>
-            <div v-if="productSfId">
-              <script async src="/product-reviews.js"></script>
-              <div id="shopify-product-reviews" :data-id="productSfId"></div>
-            </div>
             <a
               v-if="product.onlineStoreUrl"
               class="swc-button swc-button--primary swc-button--raised"
               :href="product.onlineStoreUrl"
-              >商品ページへ</a
-            >
+            >商品ページへ</a>
           </div>
         </div>
         <section v-if="product.variants && product.variants.edges.length > 0">
